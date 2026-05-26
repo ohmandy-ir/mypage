@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 서울시장 공약 분석</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0e0e0e;
+    --white: #f7f5f0;
+    --gray-1: #1c1c1c;
+    --gray-2: #2e2e2e;
+    --gray-3: #5a5a5a;
+    --gray-4: #9a9a9a;
+    --gray-5: #d8d5ce;
+    --gray-6: #eceae4;
+    --accent: #c8402a;
+    --accent-light: #f2e8e6;
+
+    --민주: #2563a8;
+    --민주-bg: #e8f0fb;
+    --국힘: #E8000F;
+    --국힘-bg: #FFF0F0;
+    --개혁: #d97706;
+    --개혁-bg: #fef3e0;
+    --여성: #7C3AED;
+    --여성-bg: #EDE9FE;
+    --자유: #8B0030;
+    --자유-bg: #FFF0F3;
+    --정의: #B07F00;
+    --정의-bg: #FFFBEB;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 40px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+    border: 1px solid var(--gray-2);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    color: #e07060;
+    font-style: normal;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray-4);
+    max-width: 560px;
+    line-height: 1.8;
+  }
+  .hero-meta {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { }
+  .hero-stat-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: var(--gray-4);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(247,245,240,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-5);
+    z-index: 100;
+    padding: 0 40px;
+  }
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-link {
+    display: inline-block;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--gray-3);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
+  }
+  .nav-link:hover { color: var(--black); border-bottom-color: var(--black); }
+
+  /* ── SECTION ── */
+  .section { padding: 72px 40px; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-alt { background: var(--gray-6); }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-5);
+  }
+  .section-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gray-5);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  /* ── INTRO CARD ── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) { .intro-grid { grid-template-columns: 1fr; } }
+  .intro-card {
+    background: var(--white);
+    border: 1px solid var(--gray-5);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+  .intro-card-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+    margin-bottom: 8px;
+  }
+  .intro-card-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  /* ── CANDIDATES ── */
+  .candidate-list { display: flex; flex-direction: column; gap: 16px; }
+  .candidate-card {
+    background: var(--white);
+    border: 1px solid var(--gray-5);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .candidate-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .candidate-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .candidate-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .candidate-info { flex: 1; }
+  .candidate-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .candidate-meta {
+    font-size: 12px;
+    color: var(--gray-3);
+    margin-top: 2px;
+  }
+  .candidate-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+  .candidate-toggle {
+    font-size: 18px;
+    color: var(--gray-4);
+    transition: transform .25s;
+  }
+  .candidate-body {
+    display: none;
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--gray-6);
+  }
+  .candidate-body.open { display: block; }
+  .candidate-toggle.open { transform: rotate(45deg); }
+
+  .pledge-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-6);
+  }
+  .pledge-item:last-child { border-bottom: none; }
+  .pledge-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-5);
+    flex-shrink: 0;
+    width: 24px;
+    padding-top: 1px;
+  }
+  .pledge-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .pledge-detail {
+    font-size: 12px;
+    color: var(--gray-3);
+    line-height: 1.6;
+  }
+  .pledge-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+
+  /* candidate colors */
+  .c-민주 { background: var(--민주-bg); color: var(--민주); }
+  .c-국힘 { background: var(--국힘-bg); color: var(--국힘); }
+  .c-개혁 { background: var(--개혁-bg); color: var(--개혁); }
+  .c-여성 { background: var(--여성-bg); color: var(--여성); }
+  .c-자유 { background: var(--자유-bg); color: var(--자유); }
+  .c-정의 { background: var(--정의-bg); color: var(--정의); }
+  .av-민주 { background: var(--민주-bg); color: var(--민주); }
+  .av-국힘 { background: var(--국힘-bg); color: var(--국힘); }
+  .av-개혁 { background: var(--개혁-bg); color: var(--개혁); }
+  .av-여성 { background: var(--여성-bg); color: var(--여성); }
+  .av-자유 { background: var(--자유-bg); color: var(--자유); }
+  .av-정의 { background: var(--정의-bg); color: var(--정의); }
+
+  /* ── AGENDA TABLE ── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .filter-btn {
+    border: 1px solid var(--gray-5);
+    background: transparent;
+    border-radius: 2px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    color: var(--gray-3);
+    transition: all .15s;
+  }
+  .filter-btn:hover { background: var(--gray-6); }
+  .filter-btn.active {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+  .agenda-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .agenda-table thead th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-4);
+    border-bottom: 1px solid var(--gray-5);
+    background: var(--white);
+  }
+  .agenda-table tbody tr {
+    border-bottom: 1px solid var(--gray-6);
+    transition: background .12s;
+  }
+  .agenda-table tbody tr:hover { background: var(--gray-6); }
+  .agenda-table td { padding: 10px 12px; vertical-align: top; }
+  .cell-detail { font-size: 11px; color: var(--gray-3); margin-top: 3px; line-height: 1.5; }
+
+  /* ── COMPASS ── */
+  .compass-container {
+    background: var(--white);
+    border: 1px solid var(--gray-5);
+    border-radius: 4px;
+    padding: 32px;
+  }
+  .compass-svg-wrap { position: relative; }
+  .compass-legend {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 24px;
+  }
+  @media (max-width: 600px) { .compass-legend { grid-template-columns: 1fr 1fr; } }
+  .legend-card {
+    border: 1px solid var(--gray-5);
+    border-radius: 3px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .legend-card:hover { border-color: var(--gray-3); }
+  .legend-card.active { border-color: var(--black); background: var(--gray-6); }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .legend-name { font-size: 13px; font-weight: 500; }
+  .legend-party { font-size: 11px; color: var(--gray-4); margin-top: 2px; }
+  .legend-ideology { font-size: 11px; color: var(--gray-3); margin-top: 4px; line-height: 1.5; }
+  .compass-info {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: var(--gray-6);
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1.7;
+    display: none;
+  }
+  .compass-info.show { display: block; }
+
+  /* ── KEY FINDINGS ── */
+  .finding-list { display: flex; flex-direction: column; gap: 0; }
+  .finding-item {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--gray-5);
+    align-items: flex-start;
+  }
+  .finding-item:first-child { padding-top: 0; }
+  .finding-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gray-5);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 48px;
+  }
+  .finding-body h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .finding-body p { font-size: 14px; color: var(--gray-3); line-height: 1.8; }
+  .finding-highlight {
+    display: inline;
+    background: linear-gradient(transparent 60%, #ffe5b4 60%);
+    color: var(--black);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: var(--gray-4);
+    padding: 40px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  footer .footer-inner { max-width: 860px; margin: 0 auto; }
+  footer a { color: var(--gray-4); text-decoration: underline; }
+
+  /* animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * { animation: fadeUp .6s ease both; }
+  .hero-label { animation-delay: .05s; }
+  .hero h1 { animation-delay: .15s; }
+  .hero-desc { animation-delay: .25s; }
+  .hero-meta { animation-delay: .35s; }
+
+  /* ── MODAL ── */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(14,14,14,0.72);z-index:1000;padding:24px 16px;overflow-y:auto;backdrop-filter:blur(4px);}
+  .modal-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+  .modal-box{background:var(--white);border-radius:4px;max-width:680px;width:100%;margin:auto;overflow:hidden;animation:modalIn .22s ease;}
+  @keyframes modalIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .modal-header{padding:24px 28px 18px;border-bottom:1px solid var(--gray-5);position:relative;}
+  .modal-num{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-4);margin-bottom:6px;}
+  .modal-title{font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:700;line-height:1.3;margin-bottom:10px;}
+  .modal-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border:1px solid var(--gray-5);border-radius:50%;background:transparent;cursor:pointer;font-size:16px;color:var(--gray-3);display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
+  .modal-close:hover{background:var(--gray-6);color:var(--black);}
+  .modal-body{padding:0 28px 28px;}
+  .modal-section{margin-top:20px;}
+  .modal-section-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--gray-4);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .modal-section-label::after{content:'';flex:1;height:1px;background:var(--gray-5);}
+  .modal-goal{font-size:13px;color:var(--black);line-height:1.75;padding:12px 16px;background:var(--gray-6);border-radius:3px;border-left:3px solid var(--gray-5);}
+  .modal-method-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .modal-method-item{font-size:13px;color:var(--black);line-height:1.75;padding:12px 14px;border:1px solid var(--gray-5);border-radius:3px;}
+  .modal-method-item strong{color:var(--black);font-weight:600;}
+  .modal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media(max-width:500px){.modal-meta-grid{grid-template-columns:1fr;}}
+  .modal-meta-card{background:var(--gray-6);border-radius:3px;padding:14px 16px;}
+  .modal-meta-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-4);font-weight:700;margin-bottom:6px;}
+  .modal-meta-value{font-size:13px;color:var(--black);line-height:1.65;}
+  .pledge-btn{display:flex;width:100%;text-align:left;background:none;border:none;padding:13px 0;cursor:pointer;gap:14px;border-bottom:1px solid var(--gray-6);transition:all .12s;font-family:'Noto Sans KR',sans-serif;border-radius:0;}
+  .pledge-btn:last-child{border-bottom:none;}
+  .pledge-btn:hover{background:var(--gray-6);padding-left:10px;padding-right:10px;border-radius:3px;}
+  .pledge-btn-arrow{font-size:13px;color:var(--gray-4);margin-left:auto;flex-shrink:0;align-self:center;transition:transform .15s;}
+  .pledge-btn:hover .pledge-btn-arrow{transform:translateX(3px);color:var(--black);}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-label">2026 지방선거 분석 리포트</span>
+    <h1>서울시장 후보<br><em>공약 분석</em></h1>
+    <p class="hero-desc">
+      제9회 전국동시지방선거(2026. 6. 3.) 서울시장 후보 6명의 공약 30개를 의제별로 분류하고, 정치 이념 성향을 Political Compass로 시각화한 분석 자료입니다.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <span class="hero-stat-num">6</span>
+        <span class="hero-stat-label">등록 후보</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">30</span>
+        <span class="hero-stat-label">분석 공약</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">10</span>
+        <span class="hero-stat-label">의제 분류</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">6.3</span>
+        <span class="hero-stat-label">선거일</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#candidates" class="nav-link">후보별 공약</a>
+    <a href="#agenda" class="nav-link">의제별 분류</a>
+    <a href="#compass" class="nav-link">정치 성향</a>
+    <a href="#findings" class="nav-link">핵심 관찰</a>
+  </div>
+</nav>
+
+<!-- SECTION 1: 후보 소개 -->
+<section class="section" id="candidates">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-num">01</span>
+      <h2 class="section-title">후보별 공약 전체</h2>
+    </div>
+    <p style="font-size:14px;color:var(--gray-3);margin-bottom:28px;">각 후보를 클릭하면 공약 5개 전문을 볼 수 있습니다.</p>
+
+    <div class="candidate-list">
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-민주">정</div>
+          <div class="candidate-info">
+            <div class="candidate-name">정원오</div>
+            <div class="candidate-meta">더불어민주당 · 1968년생</div>
+            <div class="candidate-tags"><span class="tag c-민주">중도좌파</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">사회민주주의</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">교통 · 돌봄 · 균형발전</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('정원오', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">30분 통근도시 실현</div>
+              <div class="pledge-detail">교통·인프라</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('정원오', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">서울 공간 대전환 — 5도심 체계</div>
+              <div class="pledge-detail">도시개발</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('정원오', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">청년창업수도 서울</div>
+              <div class="pledge-detail">경제·일자리</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('정원오', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">24시간 공백 없는 아이돌봄 지원체계</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('정원오', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">4050+센터 · 시니어라이프캠퍼스</div>
+              <div class="pledge-detail">노인·중장년</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-국힘">오</div>
+          <div class="candidate-info">
+            <div class="candidate-name">오세훈</div>
+            <div class="candidate-meta">국민의힘 · 1961년생</div>
+            <div class="candidate-tags"><span class="tag c-국힘">중도우파</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">자유보수주의</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">주거 · 교통 · 선별복지</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('오세훈', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">압도적 주택공급 — 2031년까지 31만호</div>
+              <div class="pledge-detail">주거·부동산</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('오세훈', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">공공주택 13만호 + 부담 가능한 민간임대</div>
+              <div class="pledge-detail">주거·부동산</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('오세훈', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">서울 교통 대전환 (총 20.8조 투입)</div>
+              <div class="pledge-detail">교통·인프라</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('오세훈', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">약자와의 동행 시즌2</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('오세훈', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">매년 100만 일자리 창출</div>
+              <div class="pledge-detail">경제·일자리</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-개혁">김</div>
+          <div class="candidate-info">
+            <div class="candidate-name">김정철</div>
+            <div class="candidate-meta">개혁신당 · 1976년생</div>
+            <div class="candidate-tags"><span class="tag c-개혁">중도</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">테크노크라시·실용주의</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">AI행정 · 규제혁파 · 효율</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('김정철', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">AI 행정혁신 — 찾아오는 서울</div>
+              <div class="pledge-detail">AI·행정혁신</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('김정철', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">규제 혁신 — 막힘없는 서울</div>
+              <div class="pledge-detail">주거·부동산</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('김정철', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">시민관변단체 구조 개혁</div>
+              <div class="pledge-detail">AI·행정혁신</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('김정철', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">복지 재설계 — 받쳐주는 서울</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('김정철', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">1인가구 중심 도시 재설계</div>
+              <div class="pledge-detail">주거·부동산</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-여성">유</div>
+          <div class="candidate-info">
+            <div class="candidate-name">유지혜</div>
+            <div class="candidate-meta">여성의당 · 1997년생</div>
+            <div class="candidate-tags"><span class="tag c-여성">좌파</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">급진 페미니즘</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">젠더평등 · 가족다양성 · 여성안전</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('유지혜', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">여성폭력·성착취 없는 서울</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('유지혜', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">여아부터 노년까지 모여살기 좋은 서울</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('유지혜', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">미래 여성 인재 양성</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('유지혜', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">여성이 안심하고 일할 수 있는 서울</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('유지혜', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">여성의료 사각지대 해소</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-자유">이</div>
+          <div class="candidate-info">
+            <div class="candidate-name">이강산</div>
+            <div class="candidate-meta">자유통일당 · 1989년생</div>
+            <div class="candidate-tags"><span class="tag c-자유">극우</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">자국민우선주의</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">네이티비즘 · 종교보수 · 반이민</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('이강산', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">자국민 보호 우선주의</div>
+              <div class="pledge-detail">자국민우선</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('이강산', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">종교 자유 수호</div>
+              <div class="pledge-detail">자국민우선</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('이강산', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">공공장소의 가치 회복</div>
+              <div class="pledge-detail">자국민우선</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('이강산', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">생명존중 출산 장려</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('이강산', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">법치수호 사법파괴 저지</div>
+              <div class="pledge-detail">자국민우선</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="candidate-card">
+        <div class="candidate-header" onclick="toggleCandidate(this)">
+          <div class="candidate-avatar av-정의">권</div>
+          <div class="candidate-info">
+            <div class="candidate-name">권영국</div>
+            <div class="candidate-meta">정의당 · 1963년생</div>
+            <div class="candidate-tags"><span class="tag c-정의">좌파</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">민주사회주의</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);">공공돌봄 · 노동권 · 생태주의</span></div>
+          </div>
+          <div class="candidate-toggle">+</div>
+        </div>
+        <div class="candidate-body">
+          <button class="pledge-btn" onclick="openPledgeModal('권영국', 0)">
+            <div class="pledge-num">1</div>
+            <div>
+              <div class="pledge-title">모든 시민이 노동권의 주체</div>
+              <div class="pledge-detail">경제·일자리</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('권영국', 1)">
+            <div class="pledge-num">2</div>
+            <div>
+              <div class="pledge-title">기본서비스를 공공이 책임</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('권영국', 2)">
+            <div class="pledge-num">3</div>
+            <div>
+              <div class="pledge-title">공공돌봄도시 서울</div>
+              <div class="pledge-detail">돌봄·복지</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('권영국', 3)">
+            <div class="pledge-num">4</div>
+            <div>
+              <div class="pledge-title">기후위기 대응 · 에너지 자립</div>
+              <div class="pledge-detail">기후·환경</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+          <button class="pledge-btn" onclick="openPledgeModal('권영국', 4)">
+            <div class="pledge-num">5</div>
+            <div>
+              <div class="pledge-title">차별금지 · 다양한 가족 포용</div>
+              <div class="pledge-detail">젠더·인권</div>
+            </div>
+            <div class="pledge-btn-arrow">→</div>
+          </button>
+        </div>
+      </div>
+    </div><!-- /candidate-list -->
+  </div>
+</section>
+
+<!-- SECTION 2: 의제별 분류 -->
+<section class="section section-alt" id="agenda">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-num">02</span>
+      <h2 class="section-title">의제별 공약 분류</h2>
+    </div>
+    <p style="font-size:14px;color:var(--gray-3);margin-bottom:20px;">의제를 선택하면 해당 공약만 표시됩니다.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterAgenda('all',this)">전체 (30)</button>
+      <button class="filter-btn" onclick="filterAgenda('돌봄·복지',this)">돌봄·복지 (6)</button>
+      <button class="filter-btn" onclick="filterAgenda('젠더·인권',this)">젠더·인권 (6)</button>
+      <button class="filter-btn" onclick="filterAgenda('자국민우선·안보',this)">자국민우선 (4)</button>
+      <button class="filter-btn" onclick="filterAgenda('주거·부동산',this)">주거·부동산 (4)</button>
+      <button class="filter-btn" onclick="filterAgenda('경제·일자리',this)">경제·일자리 (3)</button>
+      <button class="filter-btn" onclick="filterAgenda('AI·행정혁신',this)">AI·행정 (2)</button>
+      <button class="filter-btn" onclick="filterAgenda('교통·인프라',this)">교통·인프라 (2)</button>
+      <button class="filter-btn" onclick="filterAgenda('기후·환경',this)">기후·환경 (1)</button>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--gray-5);border-radius:4px;overflow:hidden;">
+      <table class="agenda-table" id="agendaTable">
+        <thead>
+          <tr>
+            <th style="width:80px;">후보</th>
+            <th style="width:100px;">의제</th>
+            <th>공약 제목</th>
+            <th style="width:110px;">성향 키워드</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-agenda="교통·인프라"><td><span class="tag c-민주">정원오</span></td><td><span class="tag" style="background:#e8f0fb;color:#1a4a90;font-size:10px;">교통·인프라</span></td><td>30분 통근도시 실현<div class="cell-detail">격자형 철도망, 버스 전면 개편, 기후동행카드 전국화</div></td><td style="font-size:11px;color:var(--gray-3);">공공교통 확대</td></tr>
+          <tr data-agenda="도시개발"><td><span class="tag c-민주">정원오</span></td><td><span class="tag" style="background:#e8f0fb;color:#1a4a90;font-size:10px;">도시개발</span></td><td>서울 공간 대전환 (5도심 체계)<div class="cell-detail">GTX 연계, 강북·서북권 혁신도심</div></td><td style="font-size:11px;color:var(--gray-3);">균형발전</td></tr>
+          <tr data-agenda="경제·일자리"><td><span class="tag c-민주">정원오</span></td><td><span class="tag" style="background:#e4f5ed;color:#1a5a40;font-size:10px;">경제·일자리</span></td><td>청년창업수도 서울<div class="cell-detail">창업수당 월 100만원, 실패도 경력 인정</div></td><td style="font-size:11px;color:var(--gray-3);">공공지원 창업</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-민주">정원오</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>24시간 아이돌봄 지원체계<div class="cell-detail">초등돌봄 200개소, 야간 30분 연결</div></td><td style="font-size:11px;color:var(--gray-3);">공공돌봄 확충</td></tr>
+          <tr data-agenda="노인·중장년"><td><span class="tag c-민주">정원오</span></td><td><span class="tag" style="background:#fef3e0;color:#7a5010;font-size:10px;">노인·중장년</span></td><td>4050+센터 · 시니어라이프캠퍼스<div class="cell-detail">중장년 원스톱 일자리, 폐교 활용 캠퍼스</div></td><td style="font-size:11px;color:var(--gray-3);">중장년 공공지원</td></tr>
+          <tr data-agenda="주거·부동산"><td><span class="tag c-국힘">오세훈</span></td><td><span class="tag" style="background:#faeeda;color:#7a5010;font-size:10px;">주거·부동산</span></td><td>압도적 주택공급 — 31만호<div class="cell-detail">신통기획 2.0, 민간 규제 혁파</div></td><td style="font-size:11px;color:var(--gray-3);">민간주도 공급</td></tr>
+          <tr data-agenda="주거·부동산"><td><span class="tag c-국힘">오세훈</span></td><td><span class="tag" style="background:#faeeda;color:#7a5010;font-size:10px;">주거·부동산</span></td><td>공공주택 13만호 + 민간임대<div class="cell-detail">토지임대형, 할부형, 청년월세</div></td><td style="font-size:11px;color:var(--gray-3);">공급+주거안전망</td></tr>
+          <tr data-agenda="교통·인프라"><td><span class="tag c-국힘">오세훈</span></td><td><span class="tag" style="background:#e8f0fb;color:#1a4a90;font-size:10px;">교통·인프라</span></td><td>서울 교통 대전환 (20.8조)<div class="cell-detail">강북 대동맥, CBTC, 기후동행패스</div></td><td style="font-size:11px;color:var(--gray-3);">대규모 인프라</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-국힘">오세훈</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>약자와의 동행 시즌2<div class="cell-detail">디딤돌소득, 서울런, 낀세대 연금</div></td><td style="font-size:11px;color:var(--gray-3);">선별적 복지</td></tr>
+          <tr data-agenda="경제·일자리"><td><span class="tag c-국힘">오세훈</span></td><td><span class="tag" style="background:#e4f5ed;color:#1a5a40;font-size:10px;">경제·일자리</span></td><td>매년 100만 일자리 창출<div class="cell-detail">민간펀드 4조, 관광객 3천만명</div></td><td style="font-size:11px;color:var(--gray-3);">민간투자 유치</td></tr>
+          <tr data-agenda="AI·행정혁신"><td><span class="tag c-개혁">김정철</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">AI·행정</span></td><td>AI 행정혁신 — 찾아오는 서울<div class="cell-detail">신청주의 타파, 수의계약 제로</div></td><td style="font-size:11px;color:var(--gray-3);">디지털 거버넌스</td></tr>
+          <tr data-agenda="주거·부동산"><td><span class="tag c-개혁">김정철</span></td><td><span class="tag" style="background:#faeeda;color:#7a5010;font-size:10px;">주거·부동산</span></td><td>규제 혁신 — 막힘없는 서울<div class="cell-detail">강남북 맞춤 규제완화, AI 재건축</div></td><td style="font-size:11px;color:var(--gray-3);">규제혁파·효율</td></tr>
+          <tr data-agenda="AI·행정혁신"><td><span class="tag c-개혁">김정철</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">AI·행정</span></td><td>시민관변단체 구조 개혁<div class="cell-detail">보조금 성과 기반, 예산낭비 추적</div></td><td style="font-size:11px;color:var(--gray-3);">작은정부·효율</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-개혁">김정철</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>복지 재설계 — 받쳐주는 서울<div class="cell-detail">AI 정밀타겟복지, 주택연금</div></td><td style="font-size:11px;color:var(--gray-3);">선별·효율 복지</td></tr>
+          <tr data-agenda="주거·부동산"><td><span class="tag c-개혁">김정철</span></td><td><span class="tag" style="background:#faeeda;color:#7a5010;font-size:10px;">주거·부동산</span></td><td>1인가구 중심 도시 재설계<div class="cell-detail">역세권 규제프리존, 1인가구 정책관</div></td><td style="font-size:11px;color:var(--gray-3);">도시재설계</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-여성">유지혜</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>여성폭력·성착취 없는 서울<div class="cell-detail">성착취 산업 근절, 디지털성범죄 예방</div></td><td style="font-size:11px;color:var(--gray-3);">급진 페미니즘</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-여성">유지혜</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>여아부터 노년까지 모여살기 좋은 서울<div class="cell-detail">연애유도 정책 폐기, 다양한 가족</div></td><td style="font-size:11px;color:var(--gray-3);">가족다양성</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-여성">유지혜</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>미래 여성 인재 양성<div class="cell-detail">공학전환 폐지, 여성 마이스터고</div></td><td style="font-size:11px;color:var(--gray-3);">분리주의 교육</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-여성">유지혜</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>여성이 안심하고 일할 수 있는 서울<div class="cell-detail">여성임원 50% 의무, 근로감독</div></td><td style="font-size:11px;color:var(--gray-3);">젠더할당제</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-여성">유지혜</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>여성의료 사각지대 해소<div class="cell-detail">성차의학연구소, 광고 규제</div></td><td style="font-size:11px;color:var(--gray-3);">여성건강권</td></tr>
+          <tr data-agenda="자국민우선·안보"><td><span class="tag c-자유">이강산</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">자국민우선</span></td><td>자국민 보호 우선주의<div class="cell-detail">외국인 복지 공개, 특별관리구역</div></td><td style="font-size:11px;color:var(--gray-3);">네이티비즘</td></tr>
+          <tr data-agenda="자국민우선·안보"><td><span class="tag c-자유">이강산</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">자국민우선</span></td><td>종교 자유 수호<div class="cell-detail">종교시설 보호 조례, 해산법 반대</div></td><td style="font-size:11px;color:var(--gray-3);">종교보수주의</td></tr>
+          <tr data-agenda="자국민우선·안보"><td><span class="tag c-자유">이강산</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">자국민우선</span></td><td>공공장소의 가치 회복<div class="cell-detail">서울광장 원칙, 학생인권조례 개정</div></td><td style="font-size:11px;color:var(--gray-3);">전통가치 수호</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-자유">이강산</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>생명존중 출산 장려<div class="cell-detail">위기임신 지원, 생명교육, 입양 강화</div></td><td style="font-size:11px;color:var(--gray-3);">종교적 보수복지</td></tr>
+          <tr data-agenda="자국민우선·안보"><td><span class="tag c-자유">이강산</span></td><td><span class="tag" style="background:#efecfd;color:#3a2880;font-size:10px;">자국민우선</span></td><td>법치수호 사법파괴 저지<div class="cell-detail">불복종 선언, 부정선거 감시단</div></td><td style="font-size:11px;color:var(--gray-3);">법치·반엘리트</td></tr>
+          <tr data-agenda="경제·일자리"><td><span class="tag c-정의">권영국</span></td><td><span class="tag" style="background:#e4f5ed;color:#1a5a40;font-size:10px;">경제·일자리</span></td><td>모든 시민이 노동권의 주체<div class="cell-detail">5인미만 근로기준법, 주4일제</div></td><td style="font-size:11px;color:var(--gray-3);">노동권 확대</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-정의">권영국</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>기본서비스를 공공이 책임<div class="cell-detail">교통 무상화, 병원비 100만원 상한</div></td><td style="font-size:11px;color:var(--gray-3);">보편 공공서비스</td></tr>
+          <tr data-agenda="돌봄·복지"><td><span class="tag c-정의">권영국</span></td><td><span class="tag" style="background:#faeae8;color:#8c3020;font-size:10px;">돌봄·복지</span></td><td>공공돌봄도시 서울<div class="cell-detail">사회서비스원, 돌봄 일자리보장제</div></td><td style="font-size:11px;color:var(--gray-3);">돌봄 사회화</td></tr>
+          <tr data-agenda="기후·환경"><td><span class="tag c-정의">권영국</span></td><td><span class="tag" style="background:#e4f5ed;color:#1a5a40;font-size:10px;">기후·환경</span></td><td>기후위기 대응 · 에너지 자립<div class="cell-detail">재생에너지, 그린리모델링, 탈탄소</div></td><td style="font-size:11px;color:var(--gray-3);">생태주의</td></tr>
+          <tr data-agenda="젠더·인권"><td><span class="tag c-정의">권영국</span></td><td><span class="tag" style="background:#fbeef5;color:#7a2050;font-size:10px;">젠더·인권</span></td><td>차별금지 · 다양한 가족 포용<div class="cell-detail">차별금지조례, 동성부부 혼인신고</div></td><td style="font-size:11px;color:var(--gray-3);">보편적 인권</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: Political Compass -->
+<section class="section" id="compass">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-num">03</span>
+      <h2 class="section-title">정치 성향 — Political Compass</h2>
+    </div>
+    <p style="font-size:14px;color:var(--gray-3);margin-bottom:24px;">
+      X축(경제): 좌 = 공공주도 강함 / 우 = 시장자유 강함<br>
+      Y축(사회): 위 = 진보·개방 / 아래 = 보수·전통
+    </p>
+
+    <div class="compass-container">
+      <svg width="100%" viewBox="0 0 560 480" style="display:block;">
+        <!-- quadrant fills -->
+        <rect x="52" y="32" width="212" height="212" fill="#e4f5ed" opacity="0.4" rx="2"/>
+        <rect x="264" y="32" width="212" height="212" fill="#e8f0fb" opacity="0.4" rx="2"/>
+        <rect x="52" y="244" width="212" height="212" fill="#fef3e0" opacity="0.4" rx="2"/>
+        <rect x="264" y="244" width="212" height="212" fill="#faeae8" opacity="0.4" rx="2"/>
+        <!-- quadrant labels -->
+        <text x="66" y="52" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#1a5a40" opacity="0.7">진보·공공</text>
+        <text x="414" y="52" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#185FA5" opacity="0.7" text-anchor="end">진보·시장</text>
+        <text x="66" y="450" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#854F0B" opacity="0.7">보수·공공</text>
+        <text x="414" y="450" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#8c3020" opacity="0.7" text-anchor="end">보수·시장</text>
+        <!-- grid -->
+        <line x1="52" y1="138" x2="476" y2="138" stroke="#d8d5ce" stroke-width="0.5" stroke-dasharray="3 3"/>
+        <line x1="52" y1="350" x2="476" y2="350" stroke="#d8d5ce" stroke-width="0.5" stroke-dasharray="3 3"/>
+        <line x1="158" y1="32" x2="158" y2="456" stroke="#d8d5ce" stroke-width="0.5" stroke-dasharray="3 3"/>
+        <line x1="370" y1="32" x2="370" y2="456" stroke="#d8d5ce" stroke-width="0.5" stroke-dasharray="3 3"/>
+        <!-- axes -->
+        <line x1="52" y1="244" x2="476" y2="244" stroke="#9a9a9a" stroke-width="1"/>
+        <line x1="264" y1="32" x2="264" y2="456" stroke="#9a9a9a" stroke-width="1"/>
+        <!-- axis arrows -->
+        <polygon points="476,240 484,244 476,248" fill="#9a9a9a"/>
+        <polygon points="268,32 264,24 260,32" fill="#9a9a9a"/>
+        <!-- axis text -->
+        <text x="270" y="28" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#5a5a5a" font-weight="500">진보·개방</text>
+        <text x="270" y="472" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#5a5a5a" font-weight="500">보수·전통</text>
+        <text x="56" y="240" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#5a5a5a" font-weight="500">공공주도</text>
+        <text x="430" y="240" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#5a5a5a" font-weight="500">시장자유</text>
+
+        <!--
+          좌표 변환 (범위 ±5):
+          X = 264 + (경제 * 42)
+          Y = 244 - (사회 * 42)
+          정원오: 경제=1.5 → 327, 사회=2.0 → 160
+          오세훈: 경제=-2.0 → 180, 사회=-0.5 → 265
+          김정철: 경제=-0.5 → 243, 사회=0.5 → 223
+          유지혜: 경제=1.0 → 306, 사회=4.5 → 55
+          이강산: 경제=-1.5 → 201, 사회=-4.5 → 433
+          권영국: 경제=4.0 → 432, 사회=3.5 → 97
+        -->
+
+        <!-- 권영국 yellow -->
+        <circle cx="75" cy="76" r="20" fill="#E6A817" opacity="0.15"/>
+        <circle cx="75" cy="76" r="12" fill="#E6A817" id="dot-kyk" style="cursor:pointer;" onclick="selectCandidate('kyk')"/>
+        <text x="75" y="80" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">권</text>
+        <text x="92" y="65" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#B07F00" font-weight="500">권영국</text>
+        <text x="92" y="78" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#B07F00" opacity="0.8">정의당</text>
+
+        <!-- 유지혜 purple -->
+        <circle cx="222" cy="55" r="20" fill="#7C3AED" opacity="0.12"/>
+        <circle cx="222" cy="55" r="12" fill="#7C3AED" id="dot-yjh" style="cursor:pointer;" onclick="selectCandidate('yjh')"/>
+        <text x="222" y="59" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">유</text>
+        <text x="238" y="50" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#5B21B6" font-weight="500">유지혜</text>
+        <text x="238" y="63" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#5B21B6" opacity="0.8">여성의당</text>
+
+        <!-- 정원오 blue -->
+        <circle cx="180" cy="160" r="20" fill="#2563a8" opacity="0.12"/>
+        <circle cx="180" cy="160" r="12" fill="#2563a8" id="dot-jwo" style="cursor:pointer;" onclick="selectCandidate('jwo')"/>
+        <text x="180" y="164" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">정</text>
+        <text x="196" y="155" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#2563a8" font-weight="500">정원오</text>
+        <text x="196" y="168" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#2563a8" opacity="0.8">더불어민주당</text>
+
+        <!-- 김정철 orange -->
+        <circle cx="306" cy="223" r="20" fill="#d97706" opacity="0.12"/>
+        <circle cx="306" cy="223" r="12" fill="#d97706" id="dot-kjc" style="cursor:pointer;" onclick="selectCandidate('kjc')"/>
+        <text x="306" y="227" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">김</text>
+        <text x="322" y="218" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#d97706" font-weight="500">김정철</text>
+        <text x="322" y="231" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#d97706" opacity="0.8">개혁신당</text>
+
+        <!-- 오세훈 red -->
+        <circle cx="348" cy="265" r="20" fill="#E8000F" opacity="0.12"/>
+        <circle cx="348" cy="265" r="12" fill="#E8000F" id="dot-osh" style="cursor:pointer;" onclick="selectCandidate('osh')"/>
+        <text x="348" y="269" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">오</text>
+        <text x="364" y="260" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#B50009" font-weight="500">오세훈</text>
+        <text x="364" y="273" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#B50009" opacity="0.8">국민의힘</text>
+
+        <!-- 이강산 deep crimson -->
+        <circle cx="306" cy="433" r="20" fill="#8B0030" opacity="0.15"/>
+        <circle cx="306" cy="433" r="12" fill="#8B0030" id="dot-lks" style="cursor:pointer;" onclick="selectCandidate('lks')"/>
+        <text x="306" y="437" font-family="Noto Serif KR,serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">이</text>
+        <text x="322" y="428" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#8B0030" font-weight="500">이강산</text>
+        <text x="322" y="441" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#8B0030" opacity="0.8">자유통일당</text>
+
+            </svg>
+
+      <div class="compass-legend">
+        <div class="legend-card" onclick="selectCandidate('jwo')" id="leg-jwo">
+          <div><span class="legend-dot" style="background:#2563a8;"></span><span class="legend-name">정원오</span></div>
+          <div class="legend-party">더불어민주당</div>
+          <div class="legend-ideology">중도좌파 · 사회민주주의<br>교통·돌봄·균형발전</div>
+        </div>
+        <div class="legend-card" onclick="selectCandidate('osh')" id="leg-osh">
+          <div><span class="legend-dot" style="background:#E8000F;"></span><span class="legend-name">오세훈</span></div>
+          <div class="legend-party">국민의힘</div>
+          <div class="legend-ideology">중도우파 · 자유보수주의<br>민간공급·선별복지</div>
+        </div>
+        <div class="legend-card" onclick="selectCandidate('kjc')" id="leg-kjc">
+          <div><span class="legend-dot" style="background:#d97706;"></span><span class="legend-name">김정철</span></div>
+          <div class="legend-party">개혁신당</div>
+          <div class="legend-ideology">중도 · 실용주의<br>AI행정·규제혁파</div>
+        </div>
+        <div class="legend-card" onclick="selectCandidate('yjh')" id="leg-yjh">
+          <div><span class="legend-dot" style="background:#7C3AED;"></span><span class="legend-name">유지혜</span></div>
+          <div class="legend-party">여성의당</div>
+          <div class="legend-ideology">좌파 · 급진 페미니즘<br>젠더평등·가족다양성</div>
+        </div>
+        <div class="legend-card" onclick="selectCandidate('lks')" id="leg-lks">
+          <div><span class="legend-dot" style="background:#8B0030;"></span><span class="legend-name">이강산</span></div>
+          <div class="legend-party">자유통일당</div>
+          <div class="legend-ideology">극우 · 자국민우선주의<br>네이티비즘·종교보수</div>
+        </div>
+        <div class="legend-card" onclick="selectCandidate('kyk')" id="leg-kyk">
+          <div><span class="legend-dot" style="background:#E6A817;"></span><span class="legend-name">권영국</span></div>
+          <div class="legend-party">정의당</div>
+          <div class="legend-ideology">좌파 · 민주사회주의<br>공공돌봄·노동·생태</div>
+        </div>
+      </div>
+
+      <div class="compass-info" id="compassInfo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: 핵심 관찰 -->
+<section class="section section-alt" id="findings">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-num">04</span>
+      <h2 class="section-title">핵심 관찰</h2>
+    </div>
+    <div class="finding-list">
+      <div class="finding-item">
+        <div class="finding-num">01</div>
+        <div class="finding-body">
+          <h3>주거·교통이 실질적 경쟁 의제</h3>
+          <p>오세훈·정원오·김정철 세 주류 후보 모두 주거와 교통에 공약을 집중했습니다. 그러나 진단은 같아도 처방이 달라요. <span class="finding-highlight">오세훈은 민간 규제완화(시 재원 투입 불요), 정원오는 공공 속도 개선(착착개발), 김정철은 AI 분쟁 해결</span>로 접근합니다. 같은 의제, 다른 이념이 가장 선명하게 드러나는 영역입니다.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">02</div>
+        <div class="finding-body">
+          <h3>양당 후보는 예상보다 중도에 수렴</h3>
+          <p>Political Compass 상에서 <span class="finding-highlight">정원오와 오세훈은 중앙에서 그리 멀지 않습니다.</span> 오세훈은 공공주택 13만호·약자동행을 병행하고, 정원오는 시장을 부정하지 않는 혼합경제를 지향합니다. 실질적인 이념 대결보다 "누가 더 잘 실행하느냐"의 실용 경쟁에 가깝습니다.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">03</div>
+        <div class="finding-body">
+          <h3>유지혜·이강산은 단일 의제 집중 전략</h3>
+          <p>두 후보 모두 공약 5개를 하나의 이슈(젠더 / 자국민)로 몰아넣었습니다. <span class="finding-highlight">득표 최대화보다 의제 선점과 정치적 존재감 확보</span>가 주 목적인 소수 정당의 전형적 전략입니다. 동시에 이들의 공약은 서울 사회 내부의 가장 날카로운 균열을 시각화합니다.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-num">04</div>
+        <div class="finding-body">
+          <h3>기후·환경은 단 1명만 정면으로 다룸</h3>
+          <p>권영국(정의당)을 제외하면 어떤 후보도 기후·에너지를 독립 공약으로 제시하지 않았습니다. 교통에서 '기후동행카드'를 언급하는 정도에 그쳤고, <span class="finding-highlight">기후위기는 아직 서울 선거의 핵심 쟁점으로 자리 잡지 못한 상태</span>입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p style="margin-bottom:8px;color:var(--gray-4);">2026 서울시장 선거 공약 분석 리포트</p>
+    <p>공약 출처: 중앙선거관리위원회 정책·공약마당 (<a href="https://policy.nec.go.kr" target="_blank">policy.nec.go.kr</a>) · 제9회 전국동시지방선거 (2026. 6. 3.)</p>
+    <p style="margin-top:8px;">이 자료는 연구·학습 목적으로 작성된 비공식 분석 자료입니다. Political Compass 좌표는 공약 내용을 기반으로 한 주관적 분류이며, 공식 입장이 아닙니다.</p>
+  </div>
+</footer>
+
+<script>
+function toggleCandidate(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.candidate-toggle');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.candidate-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.candidate-toggle').forEach(t => t.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    toggle.classList.add('open');
+  }
+}
+
+function filterAgenda(agenda, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#agendaTable tbody tr').forEach(row => {
+    row.style.display = (agenda === 'all' || row.dataset.agenda === agenda) ? '' : 'none';
+  });
+}
+
+const compassInfo = {
+  jwo: { color: '#2563a8', html: '<strong>정원오 (더불어민주당)</strong> — 중도좌파 · 사회민주주의<br>경제에서는 공공 주도(창업지원, 아이돌봄 공공화)를 내세우면서도 시장을 부정하지 않는 혼합경제에 가깝습니다. 사회적으로는 젠더 언급을 절제하고 돌봄·균형발전에 집중해 온건 진보 위치에 있습니다.' },
+  osh: { color: '#E8000F', html: '<strong>오세훈 (국민의힘)</strong> — 중도우파 · 자유보수주의<br>주택 공급은 민간 정비사업 중심으로 시장 자유화를 선호하지만, 공공임대 13만호·약자동행 같은 선별적 복지도 병행합니다. 사회적으로는 중도에 가까워 극단적 보수 색채는 없습니다.' },
+  kjc: { color: '#d97706', html: '<strong>김정철 (개혁신당)</strong> — 중도 · 테크노크라시·실용주의<br>공약의 핵심은 "AI로 행정을 효율화하자"는 테크노크라시 계열입니다. 규제완화(시장)와 AI복지(공공)를 동시에 내세우며 좌우 이념보다 "효율"을 최우선에 두는 포지션입니다.' },
+  yjh: { color: '#7C3AED', html: '<strong>유지혜 (여성의당)</strong> — 좌파 · 급진 페미니즘<br>공약 5개가 모두 젠더 의제로 일원화되어 있습니다. 저출생 연애유도 정책 폐기, 여성임원 50% 의무화 등 구조적 성차별 철폐를 전면에 내세웁니다. 경제 공약은 상대적으로 적습니다.' },
+  lks: { color: '#8B0030', html: '<strong>이강산 (자유통일당)</strong> — 극우 · 자국민우선주의<br>공약의 80%가 자국민 보호·종교 자유·법치 수호로 구성됩니다. 외국인 복지실태 공개, 부정선거 방지 감시단, 학생인권조례 개정 등 Political Compass 우하단에 가장 멀리 위치합니다.' },
+  kyk: { color: '#E6A817', html: '<strong>권영국 (정의당)</strong> — 좌파 · 민주사회주의<br>대중교통 무상화, 병원비 100만원 상한, 공공조식 등 생활필수재 공공화를 전면에 내세웁니다. 차별금지조례, 동성부부 혼인신고 등 사회 진보 의제도 함께 다뤄 좌파-진보 영역의 최좌단에 위치합니다.' }
+};
+
+function selectCandidate(id) {
+  document.querySelectorAll('.legend-card').forEach(c => c.classList.remove('active'));
+  const legEl = document.getElementById('leg-' + id);
+  if (legEl) legEl.classList.add('active');
+  const info = compassInfo[id];
+  const box = document.getElementById('compassInfo');
+  box.innerHTML = info.html;
+  box.style.borderLeft = '3px solid ' + info.color;
+  box.classList.add('show');
+}
+
+
+const PLEDGES = {"정원오":[{num:1,agenda:"교통·인프라",title:"30분 통근도시 실현",goal:"10분 역세권 및 5분 정류소 달성, 기존 철도망을 유기적으로 결합해 대중교통 네트워크 효율성 확대, 시민 교통비 부담 완화",method:["【격자형 철도망 구축】 동부권 '동부선' 신설, 서부선 공사비 현실화, 강북횡단선 재추진 — 남북축 + 횡단선 연결로 격자형 철도망 완성","【버스 전면 개편】 중복노선 정비, 지하철·시내버스·마을버스 유기적 연결, 고지대·산악지대 공공버스 투입","【교통비 완화】 기후동행카드 → 'K-모두의기후동행카드' 이용권역 전국화, 신분당선·광역버스 등 광역교통까지 확대"],period:"'26~'35년 철도망 계획사업(장기) / '26~'30년 버스서비스·교통카드 개선 순차 추진",funding:"철도사업: 정부지원금 확보 및 민간사업 유치 별도 논의 / 버스사업: 제도·정비개선으로 효율성 제고"},{num:2,agenda:"도시개발",title:"서울 공간 대전환 — 5도심 체계",goal:"3도심 체계 → 5도심·6광역중심 체계 전환으로 서울 잠재력 2배 확장, GTX·광역철도 연계로 대서울권 2,600만 동반성장 도시구조 구축",method:["【5도심 확립】 동북권 혁신도심(성수·청량리·왕십리·창동·상계, 신경제 첨단산업), 서북권 혁신도심(신촌·홍대~상암·수색, 미디어·문화)","【강북 대학순환축】 강북횡단선 재추진, 대학 개방형 순환망 구축","【착착 경제활력존】 화이트 조닝·인센티브 차등 시범 운영, 경부선 지하화 선도 추진"],period:"'26~'27년 마스터플랜 수립·발표 / '27~'28년 이행 프로세스 가동 / '28~'30년 경부선 지하화·강북횡단선 추진",funding:"민간 투자 인센티브 활용(용적률·용도복합 인센티브), 공공기여 현물 전환으로 산업·창업 공간 확보 — 시 재정 부담 최소화"},{num:3,agenda:"경제·일자리",title:"청년창업수도 서울",goal:"도전이 경력이 되는 도시 구현 — 성공은 스케일업으로, 실패는 재도전 경력으로 연결되는 선순환 체계",method:["【창업도전캠퍼스】 신촌·관악·청량리 3개소 조성, 학점제 AI·창업 교육 + 법률·세무·행정 자문 + 전담 매니저 매칭","【창업도전수당 + 첫출발자금】 준비 기간 생계 월 100만원(12개월) + 사업화 자금 평균 4,000만원 지급","【서울창업경험은행】 창업 과정 데이터 축적, 실패 시 '경력보유청년 인정서' 발급, 1,000억원 청년창업펀드 운용"],period:"'26년 조례 제·개정 및 권역별 인프라 확보 / '27년~ 공간별 순차 개소 및 매년 선발·지원",funding:"연간 약 600억원 일반회계 예산(창업수당·사업화 자금) + 시 출자금 마중물로 민간 매칭 1,000억원 전용 펀드"},{num:4,agenda:"돌봄·복지",title:"24시간 공백 없는 아이돌봄 지원체계",goal:"초등 돌봄 시설 확충 및 아이돌봄 서비스 개선을 통해 맞벌이 가구의 자녀 돌봄 공백 해소",method:["【초등 돌봄 200개소 확충】 주거 밀집 지역 '골목형 미니 키움센터', 초등 고학년 '키움클럽' 확대, 방학 기간 맞벌이·한부모 점심 제공","【아이돌봄사 4천명 확충】 공공 기관 추가 지정, 연령별 지원체계 단순화, 민간 아이돌봄·손주돌봄 바우처 초등 3학년까지 확대","【야간 30분 연결】 광역 인력풀 구축, '성동구 우리아이 안심동행센터' 전 자치구 확대, 서울형 돌봄인 수당 추진"],period:"'26년 아이돌봄서비스 개편방안 마련 / '27~'30년 돌봄시설·서비스 지원 단계적 확대",funding:"어린이집·유치원 통합 후 보육·돌봄 재정 효율적 재편 / 공공성·안전성 확보 서비스 중심 단계적 확대"},{num:5,agenda:"노인·중장년",title:"4050+센터 · 시니어라이프캠퍼스",goal:"이중돌봄·심리위기에 처한 4050세대 종합 지원체계 마련, 은퇴 이후에도 배우고 일하며 지역과 함께하는 활기찬 노년환경 조성",method:["【4050플러스재단 확대개편】 일자리 소개 중심 → 경제·심리·사회 처방 기능 확대, 서울시 인증 교육기관 자유 선택 + '징검다리 일자리' 매칭 원스톱 서비스","【이웃연결단】 독거어르신 안부 확인, 봉사활동·재능기부 사회참여 프로젝트 활성화","【시니어라이프캠퍼스】 폐교 등 유휴 공공시설 활용, 디지털·금융·인문학 학년제 교육 + 재취업·창업 + 시니어 건강관리센터·스마트 헬스케어"],period:"4050재단: '26년 계획 수립 → '27년~ 기능 순차 도입 / 캠퍼스: '26~'27년 설계 → '28년~ 조성 → '29~'30년 운영",funding:"기존 50플러스재단 운영 예산 구조 유지 + 교육청 협력 폐교 활용(부지 매입·건축 비용 최소화)"}],"오세훈":[{num:1,agenda:"주거·부동산",title:"압도적 주택공급 — 2031년까지 31만호",goal:"'신속통합기획 2.0'으로 '31년까지 31만호 착공 — 멈췄던 공급에 속도를!",method:["【핵심전략정비구역】 이주·착공 단계 주요 사업지 집중 관리로 3년 내 8.5만호 신속 착공","【정비사업 규제 혁파 4종】 쾌속통합(추진위 없이 즉시 조합설립), 신통AI기획(AI로 법령 검토·반려 제거), 신통120(전화 한 통 AI 컨설팅), 신통확산(전 단계·전 사업 표준화)","【강북 인센티브 6종】 성장잠재권 용도상향, 사전협상제(136곳 중 강북 51곳), 강북형 역세권(153→325개, 공공기여 50%→30%), 도심복합개발(용적률 최대 1,300%), 사업성 보정계수, 고도지구 규제 혁파"],period:"임기 시작 3년 내 8.5만호 착공 / '31년까지 31만호 착공",funding:"민간정비사업이므로 시 재원 투입 불요 / 신통AI기획·신통120 시스템 구축 비용만 시 재정으로 추진"},{num:2,agenda:"주거·부동산",title:"공공주택 13만호 + 부담 가능한 민간임대",goal:"'31년까지 공공주택 13만호 공급과 부담 가능한 민간임대 지원으로 주거이동 안전망 복원",method:["【공공임대 12.3만호】 건설형 2.3만호, 매입형 6.97만호, 임차형 3만호 / 장기전세 10.6만호로 확대","【공공분양 6,500호】 토지임대형 6천호(시세 50% 이하·40년 거주), 할부형 500호(집값 20%로 입주 후 20년 저리 분할납부)","【민간임대 + 주거비 지원】 비아파트 건설 연 1만호(2%대 고정금리), 중장년 월세 지원(월 20~25만원), 청년월세 지원기간 10→12개월"],period:"'31년까지 완료",funding:"'서울시 주택진흥기금' 등 시 예산 및 기금 활용"},{num:3,agenda:"교통·인프라",title:"서울 교통 대전환 (총 20.8조 투입)",goal:"출·퇴근은 더 빠르게, 교통비는 더 가볍게",method:["【교통대동맥 20.8조】 강북횡단 지하고속도로(3.4조)+남부순환(1.7조)+도시철도 7개 노선 조기 완공(9.2조)+동부간선 지하화 등 6개 사업(6.5조)","【CBTC 배차 단축】 우이신설선('26년~) → 9호선·2호선 → 전 노선 단계적 확대, 혼잡도 20%p↓, 대기시간 0.5~1분 감축","【서울기후동행패스】 K-패스 결합, 70세 이상 월 15회 미만 이용자 교통비 100% 지원, GTX-A·신분당선 서울구간 적용"],period:"민선 9기 ~ '37년 완료",funding:"교통대동맥 20.8조: 공공기여분·공공부지 매각수입 기반 '강북전성시대기금' / 무선통신시스템: 시비+서울교통공사 예산 / 기후동행패스: 국고+시비"},{num:4,agenda:"돌봄·복지",title:"약자와의 동행 시즌2",goal:"생애주기별 맞춤형 안심돌봄체계 구축",method:["【디딤돌소득 2.0】 가족돌봄청년·저소득 한부모·발달장애아동 가구 1천가구, 2년간 월 80~110만원 소득 지원 + 4년간 2천만원 자산 형성","【서울런 확대】 초중고 소득 하위 70%까지, 고품질 인강 + 대학원생 1:1 멘토링 + AI 학습진단","【낀세대 연금·AIP】 서울형 IRP(10년간 월 8+2만원, 은퇴 후 월 21~26만원) / 방문진료 본인부담금 80% 지원, 파크골프장 120개, 고지대 엘리베이터·모노레일"],period:"민선 9기 임기 내(일부 사업은 사회보장협의 완료 이후)",funding:"서울시 재정으로 추진"},{num:5,agenda:"경제·일자리",title:"매년 100만 일자리 창출",goal:"매년 100만 서울 일자리 창출 및 고용 유발",method:["【넥스트이코노미 서울】 동북권(바이오·하이테크), 서북권(K-콘텐츠), 도심권(글로벌 금융·문화), 동남권(AI·로봇·퀀텀), 서남권(제조+AI) → 연 15.1만개","【투자펀드】 4조원 규모 '넥스트이코노미 서울펀드'(시 출자 2천억), 서울투자진흥재단 연 5천억원 해외 투자 유치","【일자리 다각화】 직업훈련·알선 10.9만명, 약자동행 공공일자리 26.2만개, 관광산업 고용유발 46.3만명(관광객 3천만명 목표)"],period:"민선 9기 임기 중 매년",funding:"서울시 재정 및 펀드 조성으로 추진"}],"김정철":[{num:1,agenda:"AI·행정혁신",title:"AI 행정혁신 — 찾아오는 서울",goal:"신청주의 타파, 복지·행정 혜택이 자동으로 찾아오는 시스템 / AI 기반 인허가 자동화 / 수의계약 제로 선언 / 복지 사각지대 AI 선제 발굴",method:["【서울AI Administration Portal】 민원·복지·인허가·교통을 단일 시민 계정 통합, 6개월 내 시범 가동, 25개 구청 계약·보조금·인허가 실시간 공개 대시보드","【AI 계약감시 시스템】 사업자 패턴·단가 이상치·정치자금 후원이력 자동 교차분석, 신규 수의계약 원칙적 금지, 분할 발주 자동 차단","【복지 자동발굴】 단전·보험료 체납·우편 미수령 등 위기 신호 데이터 연동, 신청 없이 지원 연결, 장애 등록·65세 도달 자동 감지 → 서비스 자동 연결"],period:"제도 설계·발주: 취임 즉시 / AI 행정 포털 시범 가동: 취임 후 6개월 / 전 자치구 복지 자동발굴: 취임 후 1년",funding:"서울시 IT 행정 예산 재배분(연 500~800억) + 수의계약 전환·복지 중복 지원 절감분 자체 조달 + 중앙정부 디지털플랫폼정부 매칭"},{num:2,agenda:"주거·부동산",title:"규제 혁신 — 막힘없는 서울",goal:"강남·강북 맞춤형 규제 완화로 도시정비 속도 회복 / AI 재건축 분쟁해결로 주택 공급 돌파 / BRT+AI 신호로 출퇴근 30분 단축",method:["【서울형 뉴딜】 강북·강남 지역별 맞춤 규제완화, 민간 개발·산업 유치 인센티브 패키지, 글로벌 기업·스타트업 입주 규제 철폐","【기적의 재건축】 AI 분담금 시뮬레이터·공공조합장·블록체인 조합 운영 도입으로 법적 분쟁 50% 단축, 신통기획 196곳 실착공 0건 한계 돌파","【교통 혁신】 CBTC 무선신호 전면 도입, 9호선 우회BRT '생생버스' 신설, AI 신호 개편(교통량 12% 개선), 공공기관 주차시설 시민 개방"],period:"규제완화 행정명령: 취임 즉시 / AI 신호·BRT 시범: 취임 후 1년 / 재건축 AI 분쟁 시스템: 취임 후 2년",funding:"민간 개발 공공기여·기부채납 활용 / 소프트웨어 우선 교통 개혁으로 대형 토목 예산 절감 / 취득세·거래세 세수 증가분 재투자"},{num:3,agenda:"AI·행정혁신",title:"시민관변단체 구조 개혁",goal:"서울시 예산 40%(18조원) 복지·보조금 전면 재검토, 성과 기반 전환, 모든 시정 사업 성과 평가 과학화, 정책 연속성 원칙 확립",method:["【AI 보조금 감시】 시민단체·보조금 수혜기관 사용 내역 실시간 모니터링, 목적 외 유용 자동 감지·환수, 성과지표 사전 설정 의무화","【전 사업 성과평가 의무화】 서울시청·25개 구청 모든 사업 과학적 성과 평가, 달성률 시민 공개 대시보드, 예산 낭비 사업 책임자 징계·환수","【정책 연속성 원칙】 인수위 기간 중 연속성 원칙 매뉴얼 제정 의무화, TBS·한강버스 사태 같은 일방적 정책 단절 방지 제도화"],period:"보조금 전수 감사·AI 감시 발주: 취임 즉시 / 성과 미달 사업 구조조정: 취임 후 6개월 / 전면 성과 기반 전환: 취임 후 1년",funding:"기존 예산 내 재배분(추가 재원 불필요) / 환수 금액·절감분 취약계층 복지 재투자 / 성과 기반 전환으로 연 수천억 효율화 기대"},{num:4,agenda:"돌봄·복지",title:"복지 재설계 — 받쳐주는 서울",goal:"현금 살포형 보편복지 → AI 정밀타겟형 복지 전환 / 서울형 주택연금으로 3,000조 부동산 자산 유동화 / 플랫폼·5인 미만·프리랜서 160만명 노동권 보호",method:["【AI 정밀타겟 복지】 단전·보험료 체납 등 위기 신호 자동 감지, 신청 없이 자동 연결, 디딤돌소득 적립식 재설계(탈수급 시 시드머니 제공)","【서울형 주택연금】 기존 HF 연금에 서울시 인센티브 추가(Track A) + SH 직접 매수형 신설(Track B), 가입 주택 일부를 청년·신혼부부에게 전세·공공임대 공급","【성장 바우처 + 노동권 6대 패키지】 서울런 어덜트 트랙 신설, 연 100만원 학습 바우처 자동충전, 플랫폼·프리랜서·5인 미만 노동자 사회안전망 연결"],period:"AI 복지 시스템 시범: 취임 후 1년 / 주택연금 가동·노동권 패키지: 취임 후 2년 / 자산적립형 복지 전환: 임기 내",funding:"18조 복지예산 효율화 재배분 / 서울형 주택연금: SH 공사 자본+서울시 보증(초년도 2~3조) / 성장 바우처: 평생교육 예산+고용노동부 직업훈련 예산 매칭"},{num:5,agenda:"주거·부동산",title:"1인가구 중심 도시 재설계",goal:"서울 가구 40%인 1인가구 중심으로 도시 정책 전면 재설계, 역세권 규제 프리존으로 소형 주택 공급 확대, 1인 삶 안정 → 저출산 해법 구조화",method:["【역세권 1인가구 규제 프리존】 소형 주택 공급 조건 용적률 인센티브, 준공공형 임대주택 공급, 소형 공급 비율 충족 사업자 인허가 패스트트랙","【1인가구 정책관(국장급) 신설】 청년·중장년·노년 생애주기 통합 관리, AI 시스템으로 중복 지원 최소화·사각지대 선제 발굴","【생활 디테일 재설계】 음식물 쓰레기 봉투 소형 규격 신설 등 1인가구 생활 디테일 서울시 표준 전반 재설계"],period:"정책관 신설: 취임 즉시 / 역세권 규제 프리존 1단계: 취임 후 1년 / 전 자치구 맞춤 정책: 임기 내",funding:"역세권 프리존: 용적률 인센티브 민간 부담 구조(추가 재정 최소화) / 정책관 운영: 기존 복지·여성가족 예산 재편 흡수"}],"유지혜":[{num:1,agenda:"젠더·인권",title:"여성폭력·성착취 없는 서울",goal:"룸살롱부터 벗방까지 성착취 산업 없는 서울, 교제폭력부터 여성테러범죄까지 여성폭력 없는 안전한 서울",method:["【여성폭력 피해지원 확대】 여성혐오·테러범죄 피해자 보호 명문화, 반려동물 동반 쉼터 확대, 보복성 역고소 2차피해 조례 명문화, 법률비용 지원","【가해자 모니터링】 교제·가정폭력 가해자 민관 협력 밀착 감시, 피해자 신변 경호 조례 신설, 서울시·자치경찰·세관 합동 강간약물(GHB 등) 특별단속반 상시 운영","【성매매·디지털 성범죄 근절】 변종 업소 조례상 금지 포함, 온·오프라인 합동 단속, 피해자 의료·법률·생계 지원, 해외 유입 피해자 다국어 지원·안전 귀환 프로그램"],period:"재임기간 중",funding:"지방교부세 교부율 인상 등으로 확충한 지방재정 활용"},{num:2,agenda:"젠더·인권",title:"여아부터 노년까지 모여살기 좋은 서울",goal:"세대별 여성 커뮤니티 육성, 저출생 명목 연애·결혼 유도 정책 전면 폐기, 다양한 가족단위 포괄 복지, 여성차별 없는 주택 공급",method:["【여성 커뮤니티 허브】 서울시내 폐교 부지 활용 권역별 여성 커뮤니티 센터 조성, 세대별 지원 프로그램","【저출생 유도 정책 폐기】 서울팅·설렘 in 한강 등 미혼 남녀 만남 사업 전면 폐지, 신혼부부 결혼 살림비·결혼장려금 지원사업 폐기","【가족다양성 포용】 비혼·동거, 동성혼, 여성 공동생활가구 포괄 사회적 가족 주거권 공식 인정, 노후주택 수선·재활용 주거 공급, 여성주거안정기금 신설"],period:"재임기간 중",funding:"지방교부세 교부율 인상 등으로 확충한 지방재정 활용"},{num:3,agenda:"젠더·인권",title:"미래 여성 인재 양성",goal:"여성교육기관 적극 투자, 성평등 교육 환경 기반 마련, 여성정치 교육 체계 구축 및 여성 평생교육 활성화",method:["【여성 교육기관 강화】 남녀공학전환추진 계획 전면 폐지(관련 예산 여성 교육기관 지원), 여자 마이스터고·과학고 증설, 국공립대 이사진·교수진 성비 50% 이상 의무화","【성평등 교육 환경】 현직 교사·성인지감수성 전문가 교과과정 자문단 신설, 성평등 연구학교·선도학교 예산 편성","【여성 평생교육】 여성정치 교육 체계 구축, 여성 정치모임·커뮤니티 조성, 중노년 여성 전용 학습바우처 지급"],period:"재임기간 중",funding:"지방교부세 교부율 인상 등으로 확충한 지방재정 활용"},{num:4,agenda:"젠더·인권",title:"여성이 안심하고 일할 수 있는 서울",goal:"공공기관 내 성불균형 해소 및 여성 의사결정 참여 확대, 여성노동자 권리구제 강화, 지역형 근로감독시스템 구축",method:["【공공기관 성평등 인사】 여성 임원비율 50% 이상 의무화, 인사·징계·평가위원회 여성비율 50% 이상 구성 의무","【여성노동권익센터】 여성가족실 전면 개편·여성정책관실 부활, 직장 내 괴롭힘·성희롱·사상검증 전담팀 운영","【지역형 근로감독】 중앙정부 위임 대비 지역형 근로감독 시스템, 채용·임금 성차별 전수조사, 성비위 공익제보자 보호 강화·법률지원"],period:"재임기간 중",funding:"지방교부세 교부율 인상 등으로 확충한 지방재정 활용"},{num:5,agenda:"젠더·인권",title:"여성의료 사각지대 해소",goal:"여성 건강생활 인프라 확충, 여성 신체·정신 건강 보장 공공의료 체계, 유해 다이어트·성형광고 없는 도시환경, 성차의학 연구·공공의료 강화",method:["【여성 체육·의료 인프라】 수영·헬스·풋살장 포함 여성전용 체육시설 신설, 공공체육시설 여성 전용 시간 확대, 여성 지도자·코치 채용 의무화","【성차의학연구소 설립】 서울시립 성차의학연구소 설립, 십대여성인권센터 재건, 디지털 성범죄 피해자 심리치료 장기 지원, 여성자살예방·연구센터","【유해광고 규제】 식이장애·외모강박 유발 조례 제정, 지하철·버스·공공시설 극단적 다이어트·외모강박 광고 금지, 약국 내 미용 목적 비만치료제 광고 규제"],period:"재임기간 중",funding:"지방교부세 교부율 인상 등으로 확충한 지방재정 활용"}],"이강산":[{num:1,agenda:"자국민우선",title:"자국민 보호 우선주의",goal:"서울시 복지 운영 원칙 자국민 우선 재정립, 외국인 복지·의료 지출 투명 공개, 자국민 청년·신혼·다자녀 우선 지원체계, 외국인 밀집지역 치안·행정 사각지대 해소",method:["【조례 개정】 서울시 사회복지 기본조례 개정(자국민 우선 원칙 1호 명문화), 외국인 복지 지출 전수조사 결과 서울시 홈페이지 상시 공개","【특별관리구역 지정】 외국인 밀집 지역 자치경찰 집중 배치, 다국어 민원·범죄 대응 전담반 운영","【자국민 우선 패키지】 서울형 주거·돌봄·교육 지원의 자국민 우선 배정 기준 신설, 건강보험 재정 손실 실태 공개 및 국회·복지부 건의서 제출"],period:"취임 30일: 조례 개정안 발의 / 취임 100일: 전수조사 착수·특별관리구역 지정 / 취임 6개월: 우선 패키지 시행 / 취임 1년: 건강보험 제도 개선 건의",funding:"서울시 일반회계 내 외국인 복지 지출 재편성으로 추가 재정 부담 최소화 / 절감 예산을 청년·신혼·다자녀 패키지에 우선 투입"},{num:2,agenda:"자국민우선",title:"종교 자유 수호",goal:"서울시를 종교 자유 특별 수호 구역으로 선포, 종교시설 보호 체계 구축, 위헌 종교 탄압 입법에 대한 법적 대응",method:["【특별 수호 구역 선포】 취임식과 동시에 공식 선언, 서울시 모든 자치구 적용","【종교시설 보호 조례 제정】 행정·세무 압박 원천 차단 조항 명문화, 정당한 사유 없는 행정처분 시 시장 사전 검토 의무화","【입법 대응】 한교총·한기총 공동 종교단체 해산법 반대 입법 청원, 종교자유 전담 부서 신설, 위헌 입법 발의 즉시 헌법재판소 탄원서 제출"],period:"취임 즉시: 수호 구역 선포 / 취임 30일: 해산법 반대 청원 / 취임 100일: 종교시설 보호 조례 / 취임 6개월: 전담 부서 신설",funding:"전담 부서: 기존 인력 재배치 / 조례·헌법 대응: 법무행정 예산 내 조정 / 공식 선언·입법 청원: 별도 예산 불요"},{num:3,agenda:"자국민우선",title:"공공장소의 가치 회복",goal:"서울광장 사용 원칙 시민 다수 가치관 기반으로 재정립, 특정 이념 강요 행위 차단, 건강한 가정 문화 진흥 및 학부모 결정권 보장",method:["【서울광장 조례 제정】 시민 다수 가치관 기반 사용 기준, 허가 심의 시 시민의견 수렴 절차 강화","【학생인권조례 개정】 특정 성별 이념 교육 강요 금지 조항 신설, 학부모 사전 동의·선택권 보장 명문화","【가정문화 진흥 조례 제정】 성평등 정책 편향 이념 사업 예산 삭감, 건강한 가정 지원 예산 신설, 학부모·가정 단체 상설 정책 협의체 구성"],period:"취임 100일: 서울광장 조례·협의체 / 취임 6개월: 성평등 정책 재검토 / 취임 1년: 학생인권조례 개정·가정문화 진흥 조례",funding:"기존 성평등 정책 예산 재편성 / 편향 이념 사업 삭감분 → 가정·학부모 지원으로 전환 / 추가 재정 부담 없이 예산 구조조정"},{num:4,agenda:"돌봄·복지",title:"생명존중 출산 장려",goal:"위기 임신·출산 여성 24시간 지원체계 구축, 유치원~고교 생명 존중 교육 정착, 입양·가정 위탁 활성화, 미혼모·위기가정 자립 지원",method:["【위기 임신·출산 지원센터】 24시간 위기 상담·연계 핫라인, 산부인과·복지기관·민간단체 통합 연계망 구축","【생명 존중 교육 조례 제정】 유치원~고교 생명 가치 교육 지원 예산 신설, 학교 성교육 지침 생명 선택권 중심으로 개정","【입양·미혼모 지원 강화】 서울시 입양 지원금 현실화, 가정 위탁 양육·의료비 확대, 주거·양육비·취업·법률 지원 통합 원스톱 패키지"],period:"취임 100일: 위기 임신 지원센터 착수 / 취임 6개월: 입양 지원금 현실화 / 취임 1년: 생명존중교육 조례·자립 지원 패키지",funding:"서울시 출산장려·인구정책 예산 통합 재편성 / 기존 저출생 예산 효율화 / 중앙정부 모자보건·아동복지 매칭 / 민간 입양·생명 단체 협력"},{num:5,agenda:"자국민우선",title:"법치수호 사법파괴 저지",goal:"위헌 행정명령 불복종 원칙 명문화, 서울시 자치경찰 권한 강화, 법치 파괴 입법 상시 헌법 대응, 부정선거 방지 감시 체계 구축",method:["【법치행정 수호 선언】 위헌 행정명령 불복종 원칙 명문화, 취임 즉시 공식 선언","【자치경찰 강화】 불법 집회·점거 즉시 행정대집행 매뉴얼, 공무원·교원 법치행정 의무 교육 신설","【부정선거 방지 감시단】 투개표 이중 감시 체계 도입, 차기 선거 전 시민·전문가 합동 감시단, 헌법재판소 탄원 상시화"],period:"취임 즉시: 법치행정 수호 선언·헌재 탄원 상시화 / 취임 100일: 자치경찰 매뉴얼 / 취임 1년: 법치교육 정착",funding:"자치경찰: 기존 자치경찰 예산 내 개편 / 법치교육: 인재개발원 예산 내 / 헌법 대응: 법무행정 예산 내 / 감시단: 선거 시 한시적 운영·자원봉사 협력"}],"권영국":[{num:1,agenda:"경제·일자리",title:"모든 시민이 노동권의 주체",goal:"서울시가 지방정부·모범 사용자·최후의 고용주로 모든 시민의 노동권 보장",method:["【노동법 사각지대 해소】 5인 미만 사업장 근로기준법 확대적용 조례 제정, 특고·프리랜서·플랫폼 노동자 건당 공정 단가 '최저보수' 보장, 불안정 노동자 맞춤형 복지카드","【AI 시대 일자리 전환】 빅테크 기업 AI 전환기금 납부 의무화, AI 도입 시 노동영향평가제·사전 노사 교섭 의무화, 공공기관부터 주4일제·포괄임금 금지","【노동 중심 시정】 노동부시장·노동정책국 신설, 자영업자 코로나19 손실보상 소급, 상가 환산보증금 폐지·임대료 상한제, 공공기관 직고용 정규직 전환"],period:"임기 내",funding:"AI 전환기금 조성, 고용노동부 협력사업비 확대, 기존 예산 구조조정(외주·용역 직고용 전환 시 순비용 감소) 및 재정영향평가 강화"},{num:2,agenda:"돌봄·복지",title:"기본서비스를 공공이 책임",goal:"생활필수재를 공공이 보장함으로써 불평등 해소와 시민 생활비 절감",method:["【주거 보장】 공공임대 임기 내 10만호 확대(장기 목표 20%), 서울형 표준 임대료·임대료 상한 도입, '서울시 주택임대차 조례' 제정(2회 계약갱신 넘어 계속거주)","【교통·의료 무상화】 2030년 대중교통 완전 무상화(아동·청소년·어르신부터 단계적), 버스 완전 공영제, 아동부터 병원비 100만원 상한 초과분 서울시 지원, 서울형 동네 주치의","【먹거리 보장】 청년·1인가구·새벽노동자 공공조식(저소득 무상·일반 '천원의 아침밥'), 아파트·대학 시설 공공식당·공유부엌 활용"],period:"임기 내",funding:"재산세 탄력세율 조정, 광역교통시설부담금 부과율 조정, 주택기금 조달 확대, 기존 예산 구조조정 및 재정영향평가 강화"},{num:3,agenda:"돌봄·복지",title:"공공돌봄도시 서울",goal:"돌봄의 사회화를 통해 개인·가족 부담 완화, 생애 맞춤형 질 좋은 돌봄 제공, 일자리 창출로 지역 활력 창출",method:["【서울사회서비스원 복원】 자치구별 공공통합돌봄센터, 직접고용·생활임금 적용, 야간 2인1조 의무화, 공공병원 간호간병통합서비스 100%, '서울 간병지원센터' 설립","【돌봄 일자리보장제】 기초돌봄~전문 간호·심리상담 무상 교육 후 돌봄 일자리 연계, 이웃돌봄·반찬나눔 참여소득(지역화폐) 지급","【아동·어르신 돌봄】 초등돌봄교사 채용(교육청 협약), 아빠 육아휴직 3개월 의무, 경로당 → 어르신건강문화센터, 공공실버주택, 약국·편의점 '돌봄 보안관'"],period:"임기 내",funding:"AI 전환기금, 재산세 탄력세율 조정, 보건복지부·서울시교육청 협약, 기존 예산 구조조정 및 재정영향평가 강화"},{num:4,agenda:"기후·환경",title:"기후위기 대응 · 에너지 자립",goal:"에너지 자립과 탈탄소 전환으로 기후위기에 맞서고, 서울이 쓰는 에너지·자원은 서울이 책임지는 자기 책임 도시 실현",method:["【에너지 자립】 서울에너지공사 공공 재생에너지 중심 개편, 1가구 1태양광, 공공기관·유휴부지 태양광 전면 확대, 에너지 협동조합 주민참여형 이익공유 모델","【탈탄소 건물·교통】 공공임대 15년 이상 56만호 포함 노후주택 그린리모델링, 신축건물 제로에너지빌딩 의무화, 생계형 내연기관차 40% 친환경 전환, 자전거 전용도로·보행로 조성","【자원 순환·상생】 재활용률 80% 확대, 지역 수리센터 확대·수리권 보장, '수도권-지역 상생협의체' 상설화, 폐기물 처리 자립 전까지 '상생기금' 운영"],period:"임기 내",funding:"재생에너지 사업 수익 활용, 기후대응기금 적극 확보, 기존 예산 구조조정(토건 등) 및 재정영향평가 강화"},{num:5,agenda:"젠더·인권",title:"차별금지 · 다양한 가족 포용",goal:"모든 시민이 성별·장애·국적·성적지향·가족형태에 관계없이 존엄하게 살고, 동물과 생명을 중시하는 도시",method:["【포괄적 차별금지조례 제정】 전담센터(현장출동·조사·법적 대응), 공공조달·채용 차별 퇴출, 성평등 임금공시제 공공기관+50인 이상 민간기업 전면 도입","【다양한 가족 인정】 생활동반자 인증제(의료 보호자 지정·SH 입주 자격), 동성부부 혼인신고 수리 및 법 개정 촉구, 이주민인권통합센터(거주 기준 복지서비스)","【동물권 조례 제정】 동물을 생명으로 규정, 동물학대 전담팀(공무원·수의사·경찰) 즉시 출동, 공공 동물센터·병원·장례식장 확대"],period:"임기 내",funding:"AI 전환기금, 여성가족부 협력사업비 확대, 기존 예산 구조조정 및 재정영향평가 강화"}]};
+
+
+function openPledgeModal(candidateName, pledgeIndex) {
+  const p = PLEDGES[candidateName] && PLEDGES[candidateName][pledgeIndex];
+  if (!p) return;
+  const colorMap = {'정원오':'var(--민주)','오세훈':'#E8000F','김정철':'var(--개혁)','유지혜':'#7C3AED','이강산':'#8B0030','권영국':'#E6A817'};
+  const bgMap = {'정원오':'var(--민주-bg)','오세훈':'#FFF0F0','김정철':'var(--개혁-bg)','유지혜':'#EDE9FE','이강산':'#FFF0F3','권영국':'#FFFBEB'};
+  document.getElementById('modalNum').textContent = candidateName + ' · 공약 ' + p.num + '번';
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalTags').innerHTML = '<span class="tag" style="background:'+bgMap[candidateName]+';color:'+colorMap[candidateName]+';">'+candidateName+'</span><span class="tag" style="background:var(--gray-6);color:var(--gray-3);font-size:11px;">'+p.agenda+'</span>';
+  document.getElementById('modalGoal').textContent = p.goal;
+  document.getElementById('modalMethod').innerHTML = p.method.map(m => '<li class="modal-method-item">'+m.replace(/【([^】]+)】/g,'<strong>【$1】</strong>')+'</li>').join('');
+  document.getElementById('modalPeriod').textContent = p.period;
+  document.getElementById('modalFunding').textContent = p.funding;
+  document.getElementById('modalBox').style.borderTop = '3px solid ' + colorMap[candidateName];
+  document.getElementById('pledgeModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('pledgeModal')) {
+    document.getElementById('pledgeModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('pledgeModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+</script>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="pledgeModal" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-num" id="modalNum"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div id="modalTags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;"></div>
+      <button class="modal-close" onclick="document.getElementById('pledgeModal').classList.remove('open');document.body.style.overflow=''">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">목표</div>
+        <div class="modal-goal" id="modalGoal"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">이행방법</div>
+        <ul class="modal-method-list" id="modalMethod"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-meta-grid">
+          <div class="modal-meta-card">
+            <div class="modal-meta-label">📅 이행기간</div>
+            <div class="modal-meta-value" id="modalPeriod"></div>
+          </div>
+          <div class="modal-meta-card">
+            <div class="modal-meta-label">💰 재원조달</div>
+            <div class="modal-meta-value" id="modalFunding"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
